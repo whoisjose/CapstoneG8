@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>{% block titulo %}Taller de Canto{% endblock %}</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f4f0f7; margin: 0; color: #2b2233; }
+  header { background: #4a3466; color: white; padding: 18px 28px; }
+  header h1 { margin: 0; font-size: 20px; }
+  nav { background: #5e4080; padding: 10px 28px; }
+  nav a { color: white; text-decoration: none; margin-right: 20px; font-size: 14px; }
+  nav a:hover { text-decoration: underline; }
+  main { padding: 24px 28px; max-width: 760px; margin: 0 auto; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e4def0; }
+  th { background: #efe8f7; font-size: 13px; }
+  tr:hover { background: #f9f6fc; }
+  a.boton { display: inline-block; background: #4a3466; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; margin-bottom: 16px; }
+  a.boton:hover { background: #5e4080; }
+  form label { display: block; margin-top: 12px; font-size: 14px; font-weight: bold; }
+  form input, form select { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+  button { background: #4a3466; color: white; border: none; padding: 10px 20px; border-radius: 6px; margin-top: 16px; cursor: pointer; font-size: 14px; }
+  button:hover { background: #5e4080; }
+  .check-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .check-row input { width: auto; }
+  .presente { color: #2a7a3b; font-weight: bold; }
+  .ausente { color: #a33; font-weight: bold; }
+</style>
+</head>
+<body>
+<header><h1>🎤 Plataforma de Gestión — Taller de Canto Independiente</h1></header>
+<nav>
+  <a href="{{ url_for('inicio') }}">Inicio</a>
+  <a href="{{ url_for('listar_alumnos') }}">Alumnos</a>
+  <a href="{{ url_for('registrar_asistencia') }}">Registrar Asistencia</a>
+  <a href="{{ url_for('listar_clases') }}">Clases</a>
+</nav>
+<main>
+{% block contenido %}{% endblock %}
+</main>
+</body>
+</html>
