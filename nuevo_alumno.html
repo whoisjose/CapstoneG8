@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Nuevo Alumno{% endblock %}
+{% block contenido %}
+<h2>Agregar Alumno</h2>
+<form method="POST">
+  <label>Nombre completo</label>
+  <input type="text" name="nombre" required>
+
+  <label>Contacto (teléfono o email)</label>
+  <input type="text" name="contacto">
+
+  <label>Fecha de ingreso</label>
+  <input type="date" name="fecha_ingreso">
+
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}
