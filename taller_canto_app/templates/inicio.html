@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+<h2>Bienvenido/a</h2>
+<p>Gestión centralizada de alumnos y asistencia para talleres de canto independientes.</p>
+<div class="tarjetas">
+  <div class="tarjeta"><b>{{ total_alumnos }}</b>alumnos registrados</div>
+  <div class="tarjeta"><b>{{ total_clases }}</b>clases registradas</div>
+</div>
+<p>Módulos disponibles en este avance:</p>
+<ul>
+  <li><strong>Alumnos:</strong> ficha individual (crear, ver, editar y eliminar).</li>
+  <li><strong>Asistencia:</strong> registro por clase y consulta por clase o por alumno.</li>
+</ul>
+<p><em>Próxima etapa: seguimiento de objetivos/progreso (diario de práctica del alumno) y evaluaciones.</em></p>
+{% endblock %}

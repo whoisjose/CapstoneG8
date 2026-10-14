@@ -1,0 +1,40 @@
+PLATAFORMA DE GESTION PARA TALLERES DE CANTO - DEMO FASE 2
+===========================================================
+
+REQUISITOS: tener Python 3 instalado (el mismo que usas normalmente).
+
+PRIMERA VEZ (una sola vez)
+1. Descomprimir esta carpeta donde quieras.
+2. Abrir una terminal (CMD o PowerShell) DENTRO de la carpeta.
+   Tip: en el explorador de archivos, hacer clic en la barra de direcciones,
+   escribir "cmd" y apretar Enter.
+3. Instalar Flask:        pip install flask
+4. (Opcional, recomendado para el demo) cargar datos de ejemplo:
+                          python datos_de_ejemplo.py
+
+CADA VEZ QUE LO QUIERAS USAR
+   python app.py
+Y abrir en el navegador:  http://127.0.0.1:5000
+Para apagarlo: Ctrl + C en la terminal.
+
+SI "python" NO FUNCIONA: probar con  py app.py
+
+REINICIAR TODO LOS DATOS: cerrar la app y borrar el archivo taller_canto.db
+(se vuelve a crear solo al abrir la app).
+
+QUE HAY EN CADA ARCHIVO (para explicarlo en la presentacion)
+- modelo_datos.py   -> define las 3 tablas (alumno, clase, asistencia) y sus relaciones
+- app.py            -> la logica: cada @app.route es una pagina o accion del sistema
+- templates/        -> las paginas HTML que ve el usuario
+- datos_de_ejemplo.py -> carga alumnos ficticios para mostrar en el demo
+
+GUION SUGERIDO PARA LOS 3-4 MINUTOS DE DEMO
+1. Inicio: mostrar los contadores (alumnos y clases).
+2. Alumnos: agregar un alumno nuevo en vivo (CREATE).
+3. Ficha del alumno: mostrar su historial y % de asistencia (READ). Editar un dato (UPDATE).
+4. Registrar asistencia: crear una clase y marcar quien vino.
+5. Clases > Ver detalle: mostrar la asistencia de esa clase; volver a la ficha de un
+   alumno y ver que su porcentaje se actualizo solo.
+6. Cierre: "lo que sigue es el modulo de progreso/diario de practica y evaluaciones".
+
+PLAN C si algo falla en vivo: tener capturas de pantalla de cada paso guardadas en el PPT.

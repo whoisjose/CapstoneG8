@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titulo %}Ficha de alumno{% endblock %}
+{% block contenido %}
+<h2>Ficha de {{ alumno['nombre'] }}</h2>
+<p><strong>Contacto:</strong> {{ alumno['contacto'] }}</p>
+<p><strong>Fecha de ingreso:</strong> {{ alumno['fecha_ingreso'] }}</p>
+<p><strong>Asistencia:</strong>
+  {% if porcentaje is none %}sin clases registradas todavía
+  {% else %}{{ presentes }} de {{ total }} clases ({{ porcentaje }}%){% endif %}
+</p>
+<a class="boton" href="{{ url_for('editar_alumno', alumno_id=alumno['id']) }}">Editar</a>
+<form method="POST" action="{{ url_for('eliminar_alumno', alumno_id=alumno['id']) }}" style="display:inline"
+      onsubmit="return confirm('¿Eliminar a este alumno y todo su historial de asistencia?');">
+  <button type="submit" class="peligro">Eliminar</button>
+</form>
+
+<h3>Historial de asistencia</h3>
+<table>
+  <tr><th>Fecha de clase</th><th>Tema</th><th>Estado</th></tr>
+  {% for r in asistencias %}
+  <tr>
+    <td>{{ r['fecha'] }}</td>
+    <td>{{ r['tema'] }}</td>
+    <td>{% if r['presente'] %}<span class="presente">Presente</span>{% else %}<span class="ausente">Ausente</span>{% endif %}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="3">Aún no tiene asistencia registrada.</td></tr>
+  {% endfor %}
+</table>
+<p style="margin-top:20px"><a href="{{ url_for('listar_alumnos') }}">&larr; Volver a Alumnos</a></p>
+{% endblock %}

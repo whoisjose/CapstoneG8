@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block titulo %}Editar alumno{% endblock %}
+{% block contenido %}
+<h2>Editar alumno</h2>
+<form method="POST">
+  <label>Nombre completo</label>
+  <input type="text" name="nombre" value="{{ alumno['nombre'] }}" required>
+  <label>Contacto (teléfono o email)</label>
+  <input type="text" name="contacto" value="{{ alumno['contacto'] or '' }}">
+  <label>Fecha de ingreso</label>
+  <input type="date" name="fecha_ingreso" value="{{ alumno['fecha_ingreso'] or '' }}">
+  <button type="submit">Guardar cambios</button>
+</form>
+{% endblock %}

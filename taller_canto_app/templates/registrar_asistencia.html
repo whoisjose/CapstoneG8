@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %}Registrar asistencia{% endblock %}
+{% block contenido %}
+<h2>Registrar asistencia de una clase</h2>
+{% if alumnos|length == 0 %}
+  <p><strong>Todavía no hay alumnos.</strong> Primero agregá al menos uno para poder tomar asistencia.</p>
+  <a class="boton" href="{{ url_for('nuevo_alumno') }}">+ Agregar alumno</a>
+{% else %}
+<form method="POST">
+  <label>Fecha de la clase</label>
+  <input type="date" name="fecha" required>
+  <label>Tema de la clase</label>
+  <input type="text" name="tema" placeholder="Ej: Técnica de respiración">
+  <h3 style="margin-top:20px;">Marcá quién asistió</h3>
+  {% for a in alumnos %}
+  <div class="check-row">
+    <input type="checkbox" name="presente_{{ a['id'] }}" id="chk{{ a['id'] }}" checked>
+    <label for="chk{{ a['id'] }}" style="margin:0; font-weight:normal;">{{ a['nombre'] }}</label>
+  </div>
+  {% endfor %}
+  <button type="submit">Guardar asistencia</button>
+</form>
+{% endif %}
+{% endblock %}

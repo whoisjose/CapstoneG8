@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}Clases{% endblock %}
+{% block contenido %}
+<h2>Clases registradas</h2>
+<a class="boton" href="{{ url_for('registrar_asistencia') }}">+ Registrar asistencia de una clase</a>
+<table>
+  <tr><th>Fecha</th><th>Tema</th><th>Asistencia</th><th></th></tr>
+  {% for c in clases %}
+  <tr>
+    <td>{{ c['fecha'] }}</td>
+    <td>{{ c['tema'] }}</td>
+    <td>{{ c['presentes'] or 0 }} de {{ c['total'] }}</td>
+    <td><a href="{{ url_for('detalle_clase', clase_id=c['id']) }}">Ver detalle</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="4">Todavía no hay clases registradas.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

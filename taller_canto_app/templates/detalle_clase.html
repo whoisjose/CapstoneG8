@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Detalle de clase{% endblock %}
+{% block contenido %}
+<h2>Clase del {{ clase['fecha'] }}</h2>
+<p><strong>Tema:</strong> {{ clase['tema'] }}</p>
+<table>
+  <tr><th>Alumno</th><th>Estado</th></tr>
+  {% for r in registros %}
+  <tr>
+    <td><a href="{{ url_for('ficha_alumno', alumno_id=r['id']) }}">{{ r['nombre'] }}</a></td>
+    <td>{% if r['presente'] %}<span class="presente">Presente</span>{% else %}<span class="ausente">Ausente</span>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+<p style="margin-top:20px"><a href="{{ url_for('listar_clases') }}">&larr; Volver a Clases</a></p>
+{% endblock %}
